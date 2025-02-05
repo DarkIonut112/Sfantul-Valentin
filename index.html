@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Întrebare Specială</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            transition: background-color 0.5s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+        }
+        #gif-container img {
+            width: 300px;
+            height: auto;
+        }
+        .buttons {
+            margin-top: 60px; /* Spațiu mai mare între butoane */
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            margin: 0 40px; /* Mărirea spațiului între butoane */
+        }
+        #yes {
+            background-color: #ff4d79;
+            color: white;
+        }
+        #no {
+            background-color: #ccc;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="gif-container">
+            <img id="gif" src="https://media.tenor.com/x5B0nXT6bhQAAAAM/bubu-dudu-dudu-rubbing-bubu.gif" alt="Intro">
+        </div>
+        <h1 id="question">Vrei să fii partenera mea? 🤍</h1>
+        <div class="buttons">
+            <button id="yes">Da</button>
+            <button id="no">Nu</button>
+        </div>
+    </div>
+    <script>
+        const yesButton = document.getElementById("yes");
+        const noButton = document.getElementById("no");
+        const question = document.getElementById("question");
+        const gif = document.getElementById("gif");
+
+        // Când apăsăm pe butonul "Nu"
+        noButton.addEventListener("click", () => {
+            // Modifică dimensiunea butonului "Da"
+            let size = 23; // Dimensiune mai mare
+            yesButton.style.fontSize = `${size}px`;
+            // Schimbă GIF-ul la apăsarea butonului "Nu"
+            gif.src = "https://i.pinimg.com/originals/4b/1d/24/4b1d24f91f30b5ff792a7fbf7cbbe521.gif";
+        });
+
+        // Când apăsăm pe butonul "Da"
+        yesButton.addEventListener("click", () => {
+            document.body.style.backgroundColor = "#ff99c2";
+            question.textContent = "Deci acum e sigur 😍";
+            gif.src = "https://i.pinimg.com/originals/f5/e0/a5/f5e0a5e748b2dc73bdec6ba0aca0a083.gif";
+            noButton.style.display = "none";
+            yesButton.style.display = "none";
+        });
+    </script>
+</body>
+</html>
